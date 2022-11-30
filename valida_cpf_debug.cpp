@@ -38,7 +38,7 @@ int main(){
 		//multiplica os digitos
 		for(int i = 0 ; i < tam - j; i++){
 			checkcpf[i] = cpf[i]*valck;
-//			cout << valck  << " ";
+			cout << valck  << " ";
 			valck = valck - 1;
 			//cout << checkcpf[i] << " ";
 		}
@@ -47,18 +47,18 @@ int main(){
 		//soma todos os resultados
 		for(int i = 0; i < tam - j; i++) valsom = valsom + checkcpf[i];
 	
-//		cout << valsom << endl;
+		cout << valsom << endl;
 		modsom = valsom % 11;
 		val[j] = 11 - modsom;
-//		cout << "mod da soma: " << modsom << endl << "valor da subtracao de 11 por mod "<< val[j] << endl;
+		cout << "mod da soma: " << modsom << endl << "valor da subtracao de 11 por mod "<< val[j] << endl;
 		if( modsom >= 10) verif[j] = 0;
 		else verif[j] = val[j];	
-//		cout << "valor verif " << verif[j] << endl;
+		cout << "valor verif " << verif[j] << endl;
 		
-//		cout << endl << endl;
+		cout << endl << endl;
 	}
 	
-//	cout << verif[2] << verif[1] << endl << cpf[9] << cpf[10] << endl;
+	cout << verif[2] << verif[1] << endl << cpf[9] << cpf[10] << endl;
 	 
 	//fim do programa
 	if(cpf[9] == verif[2] && cpf[10] == verif[1]) cout << "CPF valido, parabens!"; 
