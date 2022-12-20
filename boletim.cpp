@@ -1,4 +1,5 @@
 #include<iostream>
+#include<conio.h>
 using namespace std;
 
 int main(){
@@ -9,9 +10,14 @@ int main(){
 		int nota[4], som = 0, med = 0;
 		char resp;
 		
-		cout << "Entre com as notas de cada etapa";
+		cout << "Entre com as notas de cada etapa\n";
 		for(int i = 0; i<4;i++){
-			cin >> nota[i];
+			
+			do{
+				cout << "Nota da etapa " << i+1 << ": \n";
+				cin >> nota[i];
+			} while(nota[i] < 0 || nota[i] > 10);
+			
 			som += nota[i];
 			cout << endl;
 		}
@@ -23,10 +29,15 @@ int main(){
 				
 		else cout << "Reprovado";
 	
-		cout << "Deseja realizar um novo boletim ? s/n";
-		cin >> resp;
+		cout << "\n\nDeseja realizar um novo boletim ? s/n";
+		resp = getch();
 		
 		if(resp == 'n') flag = 0;
-		else flag = 1;
+		
+		else{
+			flag = 1;
+			system("cls");
+		} 
+		
 	}while(flag);
 }
