@@ -5,6 +5,7 @@ bebida = ('Agua','Refri','Cerveja')
 priceB = (2,5,10)
 valor = 0
 flag = 1
+
 while flag:
     flag = 0
     print('{:#^30}'.format(' MENU '))
@@ -12,7 +13,7 @@ while flag:
         print('{}-{}'.format(c + 1, menu[c]))
     print('{:#^30}'.format(' MENU '))
     escom = int(input(''))
-
+        
     if escom == 1:
         print('{:#^30}'.format(' PRATO '))
         for c in range(0,3):
@@ -25,7 +26,7 @@ while flag:
             valor += priceP[esco-1]
         if esco == 3: 
             valor += priceP[esco-1]
-        
+            
     if escom == 2:
         print('{:#^30}'.format(' BEBIDA '))
         for c in range(0,3):
@@ -38,8 +39,12 @@ while flag:
             valor += priceB[esco-1]
         if esco == 3: 
             valor += priceB[esco-1]
+            
+    if escom != 1 and escom != 2:
+        print('Opção Invalida')
+        
     rep = input('Deseja escolher algo mais? s/n ')
-    if rep == 's':
+    if rep == 's' or rep == 'S':
         flag = 1
     
 print('{:#^30}'.format(' CONTA '))
