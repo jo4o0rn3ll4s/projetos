@@ -41,3 +41,6 @@ val2 = som2%11
 dig2 = 0 if val2 >= 10 else 11 - val2
 
 print('\n\n',val1 ,dig1 ,val2 ,dig2)
+print(sep ,num)
+
+print('CPF valido' if num[9] == dig1 and num[10] == dig2 else 'CPF invalido')
