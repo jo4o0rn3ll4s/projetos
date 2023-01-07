@@ -2,14 +2,8 @@ cpf = int(input('Digite seu cpf => '))
 sep = list()
 num = list()
 ckcpf = list()
-multi1 = 10
-multi2 = 11
-som1 = 0
-som2 = 0
-val1 = 0
-val2 = 0
-dig1 = 0
-dig2 = 0
+val = [0, 0, 0]
+dig = [0, 0, 0]
 
 for i in range(0,11):
     sep.insert(i, cpf//10**(10-i))
@@ -18,22 +12,16 @@ num.insert(0,sep[0])
 for i in range(1,11):
     num.insert(i, sep[i]-sep[i-1]*10)
 
-for i in range(0, 9, 1):
-    ckcpf.insert(i, num[i]*multi1)
-    som1 = som1 + ckcpf[i]
-    multi1 = multi1 - 1
+for i in range(2, 0, -1):
+    som = 0
+    multi = 10 if i == 2 else 11
+    for j in range(0, 11-i, 1):
+        ckcpf.insert(j, num[j]*multi)
+        som = som + ckcpf[j]
+        multi = multi - 1
+    val.insert(i, som % 11)
+    dig.insert(i, 0 if val[i] >= 10 else 11 - val[i])
+    ckcpf.clear()
 
-val1 = som1%11
-dig1 = 0 if val1 >= 10 else 11 - val1
-
-ckcpf.clear()
-
-for i in range(0, 10):
-    ckcpf.insert(i, num[i]*multi2)
-    som2 = som2 + ckcpf[i]
-    multi2 = multi2 - 1
-
-val2 = som2%11
-dig2 = 0 if val2 >= 10 else 11 - val2
-
-print('CPF valido' if num[9] == dig1 and num[10] == dig2 else 'CPF invalido')
+print('CPF valido' if num[9] == dig[3] and num[10] == dig[1] else 'CPF invalido')
+ 
